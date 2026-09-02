@@ -12,7 +12,7 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(
-                MainApplication.class.getResource("/ni/edu/uam/matricula/matricula-view.fxml")
+                MainApplication.class.getResource("/ni/edu/uam/prueba2926/matricula-view.fxml")
         );
 
         Scene scene = new Scene(loader.load(), 1280, 800);
