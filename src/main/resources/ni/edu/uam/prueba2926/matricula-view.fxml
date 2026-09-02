@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ni.edu.uam.prueba2926.controllers.MatriculaController"
+            onKeyPressed="#manejarTeclado"
+            prefWidth="1280.0" prefHeight="800.0"
+            stylesheets="@styles.css"
+            styleClass="root-pane">
+
+    <top>
+        <VBox>
+            <MenuBar>
+                <menus>
+                    <Menu text="Archivo">
+                        <items>
+                            <MenuItem text="Nuevo" accelerator="Ctrl+N" onAction="#limpiar" />
+                            <SeparatorMenuItem />
+                            <MenuItem text="Salir" accelerator="Ctrl+Q" onAction="#salir" />
+                        </items>
+                    </Menu>
+                    <Menu text="Ayuda">
+                        <items>
+                            <MenuItem text="Acerca de" onAction="#acercaDe" />
+                        </items>
+                    </Menu>
+                </menus>
+            </MenuBar>
+
+            <ToolBar styleClass="app-toolbar">
+                <items>
+                    <Button text="Guardar" onAction="#guardar" styleClass="toolbar-primary" />
+                    <Button text="Limpiar" onAction="#limpiar" />
+                    <Button text="Eliminar" onAction="#eliminar" />
+                    <Separator orientation="VERTICAL" />
+                    <Label text="Atajos: Enter guarda/actualiza | Esc limpia" styleClass="shortcut-label" />
+                </items>
+            </ToolBar>
+
+            <HBox alignment="CENTER_LEFT" spacing="18.0" styleClass="hero">
+                <padding>
+                    <Insets top="18.0" right="26.0" bottom="18.0" left="26.0" />
+                </padding>
+                <ImageView fitWidth="68.0" fitHeight="68.0" preserveRatio="true">
+                    <image>
+                        <Image url="@logo-inatec.png" />
+                    </image>
+                </ImageView>
+                <VBox spacing="4.0">
+                    <Label text="SISTEMA DE MATRICULA" styleClass="hero-title" />
+                    <Label text="Centro Nicaragüense de Formación Tecnológica" styleClass="hero-subtitle" />
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <Label text="PROYECTO 1" styleClass="project-badge" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.39" styleClass="main-split">
+            <items>
+                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="form-scroll">
+                    <content>
+                        <VBox spacing="16.0" styleClass="panel-card">
+                            <padding>
+                                <Insets top="22.0" right="24.0" bottom="24.0" left="24.0" />
+                            </padding>
+
+                            <VBox spacing="3.0">
+                                <Label text="Datos del estudiante" styleClass="section-title" />
+                                <Label text="Complete todos los campos obligatorios." styleClass="section-caption" />
+                            </VBox>
+
+                            <GridPane hgap="12.0" vgap="12.0">
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="50.0" hgrow="ALWAYS" />
+                                    <ColumnConstraints percentWidth="50.0" hgrow="ALWAYS" />
+                                </columnConstraints>
+                                <children>
+                                    <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                        <Label text="Nombres *" styleClass="field-label" />
+                                        <TextField fx:id="txtNombres" promptText="Ej. Rolando Enrique" />
+                                    </VBox>
+                                    <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                        <Label text="Apellidos *" styleClass="field-label" />
+                                        <TextField fx:id="txtApellidos" promptText="Ej. Mayorga Mena" />
+                                    </VBox>
+                                    <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                        <Label text="Usuario *" styleClass="field-label" />
+                                        <TextField fx:id="txtUsuario" promptText="Minimo 5 caracteres" />
+                                    </VBox>
+                                    <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                        <Label text="Contraseña *" styleClass="field-label" />
+                                        <PasswordField fx:id="txtContrasena" promptText="Minimo 8 caracteres" />
+                                    </VBox>
+                                    <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                        <Label text="Fecha de nacimiento *" styleClass="field-label" />
+                                        <DatePicker fx:id="dpFechaNacimiento" maxWidth="Infinity" promptText="dd/mm/aaaa" />
+                                    </VBox>
+                                    <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                        <Label text="Departamento *" styleClass="field-label" />
+                                        <ComboBox fx:id="cbDepartamento" maxWidth="Infinity" promptText="Seleccione" />
+                                    </VBox>
+                                </children>
+                            </GridPane>
+
+                            <VBox spacing="6.0">
+                                <Label text="Curso *" styleClass="field-label" />
+                                <ListView fx:id="lvCurso" prefHeight="112.0" />
+                            </VBox>
+
+                            <VBox spacing="7.0">
+                                <Label text="Modalidad *" styleClass="field-label" />
+                                <HBox spacing="22.0">
+                                    <RadioButton fx:id="rbPresencial" text="Presencial">
+                                        <toggleGroup>
+                                            <ToggleGroup fx:id="grupoModalidad" />
+                                        </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="rbVirtual" text="Virtual" toggleGroup="$grupoModalidad" />
+                                </HBox>
+                            </VBox>
+
+                            <VBox spacing="7.0">
+                                <Label text="Horarios disponibles *" styleClass="field-label" />
+                                <FlowPane hgap="18.0" vgap="7.0">
+                                    <children>
+                                        <CheckBox fx:id="chkMatutino" text="Matutino" />
+                                        <CheckBox fx:id="chkVespertino" text="Vespertino" />
+                                        <CheckBox fx:id="chkSabatino" text="Sabatino" />
+                                    </children>
+                                </FlowPane>
+                            </VBox>
+
+                            <CheckBox fx:id="chkNormas"
+                                      text="He leido y acepto las normas del centro. *"
+                                      wrapText="true" styleClass="terms-check" />
+
+                            <HBox spacing="9.0" alignment="CENTER_RIGHT">
+                                <Button text="Limpiar" onAction="#limpiar" styleClass="secondary-button" />
+                                <Button fx:id="btnEliminar" text="Eliminar" onAction="#eliminar" styleClass="danger-button" />
+                                <Button fx:id="btnActualizar" text="Actualizar" onAction="#actualizar" styleClass="secondary-button" />
+                                <Button text="Guardar matrícula" onAction="#guardar" styleClass="primary-button" />
+                            </HBox>
+                        </VBox>
+                    </content>
+                </ScrollPane>
+
+                <VBox spacing="14.0" styleClass="table-panel">
+                    <padding>
+                        <Insets top="22.0" right="24.0" bottom="22.0" left="24.0" />
+                    </padding>
+                    <HBox alignment="CENTER_LEFT">
+                        <VBox spacing="3.0">
+                            <Label text="Estudiantes matriculados" styleClass="section-title" />
+                            <Label text="Doble clic para cargar un registro y editarlo." styleClass="section-caption" />
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label fx:id="lblEstado" text="0 estudiante(s) registrado(s)" styleClass="status-badge" />
+                    </HBox>
+
+                    <TableView fx:id="tblEstudiantes" onMouseClicked="#dobleClicTabla" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colNombreCompleto" text="Nombre completo" prefWidth="170.0" />
+                            <TableColumn fx:id="colDepartamento" text="Departamento" prefWidth="115.0" />
+                            <TableColumn fx:id="colCurso" text="Curso" prefWidth="115.0" />
+                            <TableColumn fx:id="colModalidad" text="Modalidad" prefWidth="95.0" />
+                            <TableColumn fx:id="colHorario" text="Horario" prefWidth="130.0" />
+                            <TableColumn fx:id="colFechaNacimiento" text="Nacimiento" prefWidth="105.0" />
+                        </columns>
+                        <contextMenu>
+                            <ContextMenu>
+                                <items>
+                                    <MenuItem text="Editar" onAction="#editarSeleccionado" />
+                                    <MenuItem text="Eliminar" onAction="#eliminar" />
+                                </items>
+                            </ContextMenu>
+                        </contextMenu>
+                    </TableView>
+                </VBox>
+            </items>
+        </SplitPane>
+    </center>
+</BorderPane>
