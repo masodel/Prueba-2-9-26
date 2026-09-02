@@ -1,0 +1,236 @@
+.root-pane {
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+    -fx-background-color: #eef3f8;
+}
+
+.menu-bar {
+    -fx-background-color: #071c33;
+    -fx-padding: 2 16 2 16;
+}
+
+.menu-bar .label {
+    -fx-text-fill: #f7fbff;
+}
+
+.menu:hover,
+.menu:showing {
+    -fx-background-color: #123a5f;
+}
+
+.context-menu {
+    -fx-background-color: white;
+}
+
+.context-menu .label {
+    -fx-text-fill: #15283b;
+}
+
+.app-toolbar {
+    -fx-background-color: #102a43;
+    -fx-padding: 7 20 9 20;
+    -fx-spacing: 8;
+}
+
+.app-toolbar .button {
+    -fx-background-color: #1e425f;
+    -fx-text-fill: #f7fbff;
+    -fx-background-radius: 6;
+    -fx-padding: 7 14;
+    -fx-cursor: hand;
+}
+
+.app-toolbar .button:hover {
+    -fx-background-color: #2d5777;
+}
+
+.app-toolbar .toolbar-primary {
+    -fx-background-color: #00a7a5;
+    -fx-font-weight: bold;
+}
+
+.shortcut-label {
+    -fx-text-fill: #bed1e2;
+    -fx-font-size: 11px;
+}
+
+.hero {
+    -fx-background-color: linear-gradient(to right, #0a2540, #123d61);
+}
+
+.hero-title {
+    -fx-text-fill: white;
+    -fx-font-size: 24px;
+    -fx-font-weight: 800;
+}
+
+.hero-subtitle {
+    -fx-text-fill: #c8d9e8;
+    -fx-font-size: 13px;
+}
+
+.project-badge {
+    -fx-background-color: rgba(0, 167, 165, 0.22);
+    -fx-border-color: #2ad1ce;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+    -fx-text-fill: #b9fffd;
+    -fx-font-weight: bold;
+    -fx-padding: 7 15;
+}
+
+.main-split,
+.main-split > .split-pane-divider {
+    -fx-background-color: #dbe4ed;
+}
+
+.main-split > .split-pane-divider {
+    -fx-padding: 0 1 0 1;
+}
+
+.form-scroll,
+.form-scroll > .viewport,
+.panel-card {
+    -fx-background-color: #f7f9fc;
+}
+
+.table-panel {
+    -fx-background-color: white;
+}
+
+.section-title {
+    -fx-text-fill: #102a43;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.section-caption {
+    -fx-text-fill: #65798b;
+    -fx-font-size: 11.5px;
+}
+
+.field-label {
+    -fx-text-fill: #29465f;
+    -fx-font-weight: 700;
+    -fx-font-size: 12px;
+}
+
+.text-field,
+.password-field,
+.combo-box,
+.date-picker,
+.list-view {
+    -fx-background-color: white;
+    -fx-border-color: #cad7e2;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-size: 12px;
+}
+
+.text-field,
+.password-field,
+.combo-box,
+.date-picker {
+    -fx-pref-height: 36px;
+}
+
+.text-field:focused,
+.password-field:focused,
+.combo-box:focused,
+.date-picker:focused,
+.list-view:focused {
+    -fx-border-color: #00a7a5;
+    -fx-effect: dropshadow(gaussian, rgba(0, 167, 165, 0.18), 5, 0, 0, 1);
+}
+
+.list-cell:selected,
+.table-row-cell:selected {
+    -fx-background-color: #d7f4f2;
+    -fx-text-fill: #0b3349;
+}
+
+.check-box,
+.radio-button {
+    -fx-text-fill: #334f66;
+}
+
+.terms-check {
+    -fx-background-color: #e8f3f6;
+    -fx-background-radius: 7;
+    -fx-padding: 10 12;
+    -fx-text-fill: #153e59;
+}
+
+.button {
+    -fx-cursor: hand;
+    -fx-font-weight: 600;
+    -fx-padding: 9 14;
+    -fx-background-radius: 7;
+}
+
+.primary-button {
+    -fx-background-color: #00a7a5;
+    -fx-text-fill: white;
+}
+
+.primary-button:hover {
+    -fx-background-color: #008b8a;
+}
+
+.secondary-button {
+    -fx-background-color: #dfe8f0;
+    -fx-text-fill: #18364e;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #ccd9e4;
+}
+
+.danger-button {
+    -fx-background-color: #ffe3e3;
+    -fx-text-fill: #a22b2b;
+}
+
+.danger-button:hover {
+    -fx-background-color: #ffcaca;
+}
+
+.status-badge {
+    -fx-background-color: #e5f6f5;
+    -fx-background-radius: 14;
+    -fx-text-fill: #007c7a;
+    -fx-font-weight: bold;
+    -fx-padding: 6 11;
+}
+
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #d7e1ea;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #102a43;
+    -fx-background-radius: 8 8 0 0;
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: transparent;
+    -fx-size: 42px;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.table-row-cell {
+    -fx-cell-size: 39px;
+    -fx-border-color: transparent transparent #edf1f5 transparent;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #eef8f8;
+}
